@@ -1708,5 +1708,15 @@
   "分享当前页面": "Share this page",
   "扫码或复制链接，打开当前页面。": "Scan or copy the link to open this page.",
   "扫码打开当前页面": "Scan to open this page",
-  "当前页面链接": "Current page link"
+  "当前页面链接": "Current page link",
+  "是不是家宽": "Residential?",
+  "是家宽": "Residential",
+  "不是家宽，是机房 IP": "Not residential, datacenter IP",
+  "类型未知": "Unknown type",
+  "IP 类型判定": "IP type verdict",
+  "公共 DNS、CDN 等服务地址，不按家宽或机房评定": "Public DNS/CDN address, not rated as residential or datacenter",
+  "移动运营商网络出口": "Mobile carrier network egress",
+  "数据源判定为住宅 IP，且未检出数据中心标记：通常是家庭宽带": "Marked residential with no datacenter flags: usually home broadband",
+  "数据源检出数据中心标记：通常是机房或云服务器": "Datacenter markers detected: usually a hosting or cloud server",
+  "数据源未返回明确的类型标记": "No clear type markers from data sources"
 }
