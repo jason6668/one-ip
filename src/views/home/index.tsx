@@ -211,30 +211,37 @@ export function HomePage() {
                       color:
                         companyTypeColors[company.company_type.toLowerCase()] ??
                         "bg-primary/5 text-primary dark:bg-primary/10",
+                      big: false,
                     }
                   : null,
                 company.is_public_service === true
                   ? {
                       label: t("公共服务"),
                       color: "bg-primary/15 text-primary dark:bg-primary/20",
+                      big: false,
                     }
                   : null,
                 company.isResidential === true && !company.is_public_service
                   ? {
                       label: t("家庭住宅 IP"),
-                      color: "bg-primary/25 text-primary dark:bg-primary/30",
+                      color:
+                        "bg-emerald-500/15 text-emerald-700 dark:bg-emerald-400/15 dark:text-emerald-300",
+                      big: true,
                     }
                   : null,
                 company.is_datacenter === true && !company.is_public_service
                   ? {
                       label: t("机房 IP"),
-                      color: "bg-primary/5 text-primary dark:bg-primary/10",
+                      color:
+                        "bg-amber-500/15 text-amber-700 dark:bg-amber-400/15 dark:text-amber-300",
+                      big: true,
                     }
                   : null,
                 company.is_mobile === true
                   ? {
                       label: t("移动网络"),
                       color: "bg-primary/15 text-primary dark:bg-primary/20",
+                      big: false,
                     }
                   : null,
                 company.is_proxy === true ||
@@ -243,6 +250,7 @@ export function HomePage() {
                   ? {
                       label: t("代理 / VPN / Tor"),
                       color: "bg-primary/10 text-primary dark:bg-primary/15",
+                      big: false,
                     }
                   : null,
               ].filter((item) => item !== null)
@@ -270,7 +278,11 @@ export function HomePage() {
                       <Badge
                         key={type.label}
                         variant="secondary"
-                        className={`h-4 px-1.5 text-[10px] font-medium tracking-normal ${type.color}`}
+                        className={`px-1.5 tracking-normal ${type.color} ${
+                          type.big
+                            ? "h-6 px-2.5 text-xs font-bold"
+                            : "h-4 text-[10px] font-medium"
+                        }`}
                       >
                         {type.label}
                       </Badge>
