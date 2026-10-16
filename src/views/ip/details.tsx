@@ -120,6 +120,52 @@ export function IpDetails({
                   .join(" · ")}
               </span>
             </div>
+            <div
+              className="mt-2 flex flex-wrap items-center gap-1.5"
+              aria-label={t("IP 类型判定")}
+            >
+              <span className="text-xs text-muted-foreground">
+                {t("是不是家宽")}：
+              </span>
+              {d.is_public_service === true ? (
+                <span
+                  className="ip-chip ip-chip-neutral text-sm font-semibold"
+                  title={t("公共 DNS、CDN 等服务地址，不按家宽或机房评定")}
+                >
+                  {t("公共服务")}
+                </span>
+              ) : d.is_mobile === true ? (
+                <span
+                  className="ip-chip ip-chip-neutral text-sm font-semibold"
+                  title={t("移动运营商网络出口")}
+                >
+                  {t("移动网络")}
+                </span>
+              ) : d.isResidential === true && d.is_datacenter !== true ? (
+                <span
+                  className="ip-chip ip-chip-residential text-sm font-bold"
+                  title={t(
+                    "数据源判定为住宅 IP，且未检出数据中心标记：通常是家庭宽带",
+                  )}
+                >
+                  🏠 {t("是家宽")}
+                </span>
+              ) : d.is_datacenter === true ? (
+                <span
+                  className="ip-chip ip-chip-warn text-sm font-semibold"
+                  title={t("数据源检出数据中心标记：通常是机房或云服务器")}
+                >
+                  {t("不是家宽，是机房 IP")}
+                </span>
+              ) : (
+                <span
+                  className="ip-chip ip-chip-neutral text-sm"
+                  title={t("数据源未返回明确的类型标记")}
+                >
+                  {t("类型未知")}
+                </span>
+              )}
+            </div>
           </div>
           <div
             className={`ip-reputation-badge${score === 100 ? " ip-reputation-perfect" : ""}`}
