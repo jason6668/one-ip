@@ -1,4 +1,5 @@
 name = "one-ip"
+account_id = "31b76fd2e9910663bc30bcab6379cf6e"
 main = "public/worker/index.js"
 compatibility_date = "2026-09-09"
 compatibility_flags = ["nodejs_compat"]
